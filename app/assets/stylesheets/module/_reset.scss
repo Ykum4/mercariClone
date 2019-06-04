@@ -64,7 +64,9 @@ a {
 input {
     outline: 0;
 }
-
+img {
+    vertical-align: middle;
+}
 
 // デフォルトでborder-box使用
 *, *:before, *:after {
