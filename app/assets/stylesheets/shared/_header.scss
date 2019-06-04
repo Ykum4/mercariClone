@@ -1,0 +1,102 @@
+header {
+  background: $white;
+}
+.header-inner {
+  width: 1020px;
+  margin: 0 auto;
+  padding-top: 8px;
+}
+.header-top {
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  h1 {
+
+  }
+  &__form {
+    position: relative;
+    width: 100%;
+    margin-left: 45px;
+    .input-default {
+      height: 40px;
+      width: 100%;
+      background: $gray;
+      font-size: 16px;
+      padding: 0 42px 0 10px;
+      border-radius: 4px;
+      border: 1px solid #CCC;
+    }
+    .fa-search {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 40px;
+      width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgb(102, 102, 102);
+      color: $white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+}
+.header-nav-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  &__left {
+    .header-nav {
+      h2 {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.4;
+        .header-nav-root {
+          display: block;
+          position: relative;
+          height: 44px;
+          line-height: 32px;
+          font-weight: bold;
+          .icon {
+            color: $red;
+            font-size: 12px;
+            margin-right: 4px;
+          }
+        }
+      }
+      li {
+        display: inline-block;
+        padding: 0 11px;
+        cursor: pointer;
+
+      }
+      li:first-child {
+        padding-left: 0;
+      }
+      li:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+  &__right {
+    li {
+      display: inline-block;
+      .register-btn {
+        display: block;
+        margin-right: 12px;
+        line-height: 30px;
+        @include btn-red;
+      }
+      .login-btn {
+        display: block;
+        line-height: 30px;
+        color: $skyblue;
+        border: 1px solid $skyblue;
+        border-radius: 4px;
+        padding: 0 10px;
+        
+      }
+    }
+  }
+}

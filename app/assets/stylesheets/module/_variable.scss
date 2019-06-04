@@ -1,0 +1,14 @@
+// カラー
+$white: #fff;
+$gray: #f5f5f5;
+$red: #ea352d;
+$skyblue: #0099e8;
+
+// ボタン
+@mixin btn-red {
+  background: $red;
+  border: 1px solid $red;
+  border-radius: 4px;
+  color: $white;
+  padding: 0px 10px;
+}

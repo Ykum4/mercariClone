@@ -1,0 +1,11 @@
+// 初期設定
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import 'module/reset';
+@import 'module/variable';
+
+// products関連
+@import 'products/index';
+
+// 共通
+@import 'shared/header.scss';
