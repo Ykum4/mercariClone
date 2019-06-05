@@ -1,4 +1,4 @@
-%header
+%header.header
   .header-inner
     .header-top
       %h1
@@ -26,6 +26,6 @@
       .header-nav-box__right
         %ul.header-login-nav
           %li
-            = link_to "新規会員登録", '/', class:'register-btn btn-red'
+            = link_to "新規会員登録",  new_user_registration_path, class:'register-btn btn-red'
           %li
-            = link_to "ログイン", '/', class:'login-btn btn-red'
+            = link_to "ログイン", new_user_session_path, class:'login-btn btn-red'

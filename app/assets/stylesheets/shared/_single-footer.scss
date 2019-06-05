@@ -1,0 +1,26 @@
+.single-footer {
+  width: 456px;
+  height: 226px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 40px 0;
+  ul {
+    display: flex;
+    justify-content: space-around;
+    li {
+      font-size: 12px;
+    }
+  }
+  .single-footer-logo {
+    display: block;
+    width: 80px;
+    height: 65px;
+    margin: 40px auto 0;
+  }
+  p {
+    margin-top: 8px;
+    small {
+      font-size: 13px;
+    }
+  }
+}
