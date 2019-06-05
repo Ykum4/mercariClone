@@ -80,22 +80,46 @@
     }
   }
   &__right {
-    li {
-      display: inline-block;
-      .register-btn {
-        display: block;
-        margin-right: 12px;
-        line-height: 30px;
-        @include btn-red;
+    .header-user-nav {  // ログイン時
+      li {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 14px;
       }
-      .login-btn {
-        display: block;
-        line-height: 30px;
-        color: $skyblue;
-        border: 1px solid $skyblue;
-        border-radius: 4px;
-        padding: 0 10px;
-        
+      i {
+        color: $light-gray;
+        font-size: 20px;
+        margin-right: 10px;
+      }
+      .notificaition {
+        padding-left: 0;
+      }
+      .mypage {
+        padding-right: 0;
+        .mypage-link {
+          border-radius: 50%;
+          margin-right: 8px;
+        }
+      }
+    }
+    .header-login-nav {  // ログインしていない時
+      li {
+        display: inline-block;
+        .register-btn {
+          display: block;
+          margin-right: 12px;
+          line-height: 30px;
+          @include btn-red;
+        }
+        .login-btn {
+          display: block;
+          line-height: 30px;
+          color: $skyblue;
+          border: 1px solid $skyblue;
+          border-radius: 4px;
+          padding: 0 10px;
+          
+        }
       }
     }
   }

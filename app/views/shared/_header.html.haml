@@ -24,8 +24,23 @@
             %ul
 
       .header-nav-box__right
-        %ul.header-login-nav
-          %li
-            = link_to "新規会員登録",  new_user_registration_path, class:'register-btn btn-red'
-          %li
-            = link_to "ログイン", new_user_session_path, class:'login-btn btn-red'
+        - if user_signed_in?
+          %ul.header-user-nav
+            %li.notification
+              = link_to '#' do
+                = icon('fas', 'bell')
+                %span お知らせ
+            %li.todo-list
+              = link_to '#' do
+                = icon('fas', 'check')
+                %span やることリスト
+            %li.mypage
+              = link_to '#' do
+                = image_tag '//static.mercdn.net/images/member_photo_noimage_thumb.png', width: '32', class:'mypage-link'
+                %span マイページ
+        - else
+          %ul.header-login-nav
+            %li
+              = link_to "新規会員登録", sign_up_path, class:'register-btn btn-red'
+            %li
+              = link_to "ログイン", new_user_session_path, class:'login-btn btn-red'
