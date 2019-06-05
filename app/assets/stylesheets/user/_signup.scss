@@ -1,0 +1,63 @@
+.select-signup-way {
+  display: block;
+}
+.signup-way-box {
+  width: 700px;
+  margin: 0 auto;
+  background: $white;
+  h2 {
+    font-size: 22px;
+    line-height: 1.5;
+    padding: 32px 16px;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+.inner {
+  padding: 64px;
+  border-top: 1px solid #f5f5f5;
+}
+.content {
+  max-width: 320px;
+  margin: 0 auto;
+  .btn-email {
+    position: relative;
+    background: #eee;
+    @include btn-default;
+    i {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      left: 16px;
+    }
+  }
+  #facebook-login {
+    position: relative;
+    background: #385185;
+    margin-top: 16px;
+    @include btn-default;
+    a{
+      color: $white;
+    }
+    i {
+      color: $white;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      left: 16px;
+    }
+  }
+  #google-login {
+    position: relative;
+    background: $white;
+    margin-top: 16px;
+    border: 1px solid #979797;
+    @include btn-default;
+    i {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      left: 16px;
+    }
+  }
+}

@@ -4,11 +4,21 @@ $gray: #f5f5f5;
 $red: #ea352d;
 $skyblue: #0099e8;
 
-// ボタン
+// 新規会員登録ボタン
 @mixin btn-red {
   background: $red;
   border: 1px solid $red;
   border-radius: 4px;
   color: $white;
   padding: 0px 10px;
+}
+
+// btn-default
+@mixin btn-default {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
 }
