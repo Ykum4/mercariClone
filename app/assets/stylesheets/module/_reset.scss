@@ -77,3 +77,9 @@ img {
             box-sizing: border-box;
 }
 
+// クリアフィックス
+.clearfix:after {
+    content: '';
+    clear: both;
+    display: block;
+  }

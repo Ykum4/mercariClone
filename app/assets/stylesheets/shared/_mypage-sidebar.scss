@@ -1,0 +1,36 @@
+.mypage-body__sidebar {
+  float: left;
+  width: 280px;
+  margin: 0 40px 0 0;
+  .mypage-nav {
+    &__list {
+      li {
+        border-top: 1px solid #eee;
+      }
+      &__item {
+        position: relative;
+        display: block;
+        min-height: 16px;
+        padding: 16px;
+        background: #fff;
+        .fa-angle-right {
+          position: absolute;
+          top: 50%;
+          right: 16px;
+          -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          font-size: 26px;
+        }
+      }
+    }
+    &__head {
+      margin: 40px 0 8px ;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+  }
+}
