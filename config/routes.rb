@@ -11,6 +11,16 @@ Rails.application.routes.draw do
   end
   
   # user周り
-  get 'mypage' => 'users#show'
+  resource :users, only: :show do
+    collection do
+      get 'mypage'
+      get 'card'=> 'users#addcard'
+      get 'card/new' => 'users#cardNew'
+      post 'card/create' => 'users#cardCreate'
+    end
+  end
 
+  # get 'mypage' => 'users#show'
+  # get 'card' => 'users#card'
+  # post 'card/create' => 'users#cardCreate'
 end

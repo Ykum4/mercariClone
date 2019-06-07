@@ -1,6 +1,7 @@
 .default-container
   = render 'shared/header'
   %main.mypage__body.clearfix
+    = render 'shared/mypage-sidebar'
     .mypage__body__main
       %section.mypage-user-icon
         = link_to "#" do
@@ -98,7 +99,6 @@
             %figure
               = image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "メルカリロゴ"
             .traded-list__not-found 取引中の商品がありません
-    = render 'shared/mypage-sidebar'
   = render 'shared/app-banner'
   = render 'shared/footer'
   = render 'shared/footer-sell-btn'
