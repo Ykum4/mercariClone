@@ -6,6 +6,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    @user.payjp_customer_id = Payjp::Customer.create.id
+    @user.save
   end
 
   protected

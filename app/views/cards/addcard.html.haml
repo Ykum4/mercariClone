@@ -1,0 +1,19 @@
+.default-cardPage-container
+  = render 'shared/header'
+  %main.mypage__body
+    = render 'shared/mypage-sidebar'
+    .mypage__body__main
+      %section.payment-method
+        %h2.payment-method__title 支払い方法
+        .payment-method__content
+          %section.payment-method__content__add
+            .payment-method__content__add__box
+              = link_to new_users_cards_path, class: "payment-method__content__add__box__btn-red" do
+                = icon('fas', 'credir-card-front')
+                クレジットカードを追加する
+          .payment-method__content__explanation
+            = link_to "https://www.mercari.com/jp/help_center/category/6/" do
+              %span 支払い方法について
+              = icon('fas', 'angle-right')
+  = render 'shared/app-banner'
+  = render 'shared/footer'
