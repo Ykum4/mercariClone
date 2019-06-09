@@ -7,16 +7,15 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   devise_scope :user do
-    get 'sign_up', to: 'users/registrations#sign_up'
+    get 'sign_up', to: 'users/registrations#sign_up' # select ways to register user by main, facebook, google
   end
   
   # user周り
   resource :users, only: :show do
+    resource :cards, only: [:new, :create]
     collection do
       get 'mypage'
-      get 'card'=> 'users#addcard'
-      get 'card/new' => 'users#cardNew'
-      post 'card/create' => 'users#cardCreate'
+      get 'card'=> 'cards#addcard'
     end
   end
 

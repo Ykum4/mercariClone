@@ -17,14 +17,13 @@ $(document).on('turbolinks:load', function(){
         $('.form-group-card-expire__input').removeAttr("name");
         $('.form-group-card-num__input').removeAttr("name");
         const token = response.id;
-        form.append('<input type="hidden" name="payjp_token" class="payjp-token" />').val(token);
+        console.log(token)
+        form.append($('<input type="hidden" name="payjp_token" class="payjp-token" />').val(token)); //jqueryオブジェクトにしないとval()メソッドが使えない
         form.get(0).submit();
       } else {
         alert('エラーがありました');
         $(this).find('button').prop('disabled', 'true');
       }
     })
-
-
   })
 });

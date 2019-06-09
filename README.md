@@ -1,24 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+payjpでtokenを渡す時にparamsに値が上手く入っていなかった
+・原因
+→ appendメソッドを使ってinput要素をhiddenにしてその中にval()メソッドで取得していたtokenを入れようとしたが
+$('<input type="hidden" name="payjp_token" class="payjp-token" />').val(token)のようにjQueryオブジェクトに変換していなくて値が入っていなかった

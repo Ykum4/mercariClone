@@ -6,8 +6,8 @@
       %section.creditcard-form
         %h2.creditcard-form__title
           クレジットカード情報入力
-        = form_tag(card_create_users_path(current_user.id), method: "POST", class: "creditcard-form__body", id:"add-card" ) do
-          = render 'users/card/creditcard-form', btn: "追加する"
+        = form_tag(users_cards_path(current_user.id), method: "POST", class: "creditcard-form__body", id:"add-card" ) do
+          = render 'cards/creditcard-form', btn: "追加する"
   = render 'shared/app-banner'
   = render 'shared/footer'
   
