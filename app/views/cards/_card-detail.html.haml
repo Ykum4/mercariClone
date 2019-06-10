@@ -1,0 +1,17 @@
+.addedCard-detail 
+  %h3.addedCard-detail__header
+    クレジットカード一覧
+  .addedCard-detail__main
+    .card-info.cardBrand-removeBtn
+      .cardBrand 
+        = card_images(@card.brand) # helperメソッドを使用(helpers/application_helper.rb)
+      .removeBtn
+        = link_to "削除する", '#', method: :delete, class:"card-remove-btn"
+    .card-info.cardNumber
+      = "************" + @card.last4
+    .card-info.cardExpire
+      = display_expMonYear(@card.exp_month, @card.exp_year) # helperメソッドを使用(helpers/application_helper.rb)
+
+
+
+
