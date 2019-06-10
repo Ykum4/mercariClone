@@ -6,6 +6,10 @@
     &__list {
       li {
         border-top: 1px solid #eee;
+        &:hover {
+          background: #333;
+          color: pink;
+        }
       }
       &__item {
         position: relative;

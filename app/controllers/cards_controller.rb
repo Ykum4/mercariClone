@@ -16,15 +16,20 @@ class CardsController < ApplicationController
   end
 
   def show
-    
   end
 
+   # カードの作成
   def create
-    # カードの作成
     card = @payjp_customer.cards.create(
       card: params[:payjp_token]
     )
     redirect_to root_path
+  end
+
+  # カードの削除
+  def destroy
+    @card.delete
+    render :new
   end
 
   private
