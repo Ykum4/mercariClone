@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   
   # user周り
   resource :users, only: :show do
-    resource :cards, only: [:new, :create, :show]
+    resource :cards, only: [:new, :create, :show, :destroy]
     collection do
       get 'mypage'
       get 'card'=> 'cards#addcard'

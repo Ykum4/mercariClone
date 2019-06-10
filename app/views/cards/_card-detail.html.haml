@@ -6,7 +6,7 @@
       .cardBrand 
         = card_images(@card.brand) # helperメソッドを使用(helpers/application_helper.rb)
       .removeBtn
-        = link_to "削除する", '#', method: :delete, class:"card-remove-btn"
+        = link_to "削除する",users_cards_path, method: :delete, class:"card-remove-btn"
     .card-info.cardNumber
       = "************" + @card.last4
     .card-info.cardExpire
