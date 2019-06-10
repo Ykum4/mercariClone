@@ -1,0 +1,29 @@
+.addedCard-detail {
+  max-width: 320px;
+  margin: 0 auto;
+  &__header {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  &__main {
+    padding: 24px 0;
+    border-bottom: 1px solid #eee;
+    .card-info {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .cardBrand-removeBtn {
+      display: flex;
+      justify-content: space-between;
+      .removeBtn {
+        background-color: red;
+        border-radius: 3px;
+        border: solid 1px red;
+        padding: 4px 6px;
+        .card-remove-btn {
+          color: white;
+        }
+      }
+    }
+  }
+}
