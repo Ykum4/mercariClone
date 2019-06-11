@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'sign_up', to: 'users/registrations#sign_up' # select ways to register user by main, facebook, google
   end
+
+  # 商品
+  resources :products
   
   # user周り
   resource :users, only: :show do
@@ -19,7 +22,5 @@ Rails.application.routes.draw do
     end
   end
 
-  # get 'mypage' => 'users#show'
-  # get 'card' => 'users#card'
-  # post 'card/create' => 'users#cardCreate'
+  
 end
