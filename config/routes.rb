@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'categories/index'
+  get 'categories/show'
   root 'products#index'
   
   # sign_up, login周りのrouting
@@ -12,6 +14,14 @@ Rails.application.routes.draw do
 
   # 商品
   resources :products
+
+  # カテゴリー
+  resources :categories, only: [:index, :show] do
+    collection do
+      get 'sub_category'
+      get 'mini_category'
+    end
+  end
   
   # user周り
   resource :users, only: :show do

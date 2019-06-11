@@ -47,12 +47,13 @@
                     必須
                   %div
                     -# 
-                    .select-wrap 
-                      = f.collection_select :category, :main_category, Category.main_category, :id, :name, {prompt:'----'}, {class:"select-default"}
                     .select-wrap
-                     
-                    .select-wrap                    
-                      = f.collection_select :area_id, Area.all, :id, :prefecture, {prompt:'----'}, {class:"select-default "}
+                      = collection_select :category, :main_category, Category.main_category, :id, :name, {prompt:'----'}, {class:"select-default", id:"main_category_form"}
+                    .select-wrap
+                      %select#sub_category_form.select-default.hidden
+                    .select-wrap
+                      = f.select :category_id, {}, {}, {class: "select-default hidden", id: "category_form"}
+                      -# = f.collection_select :area_id, Area.all, :id, :prefecture, {prompt:'----'}, {class:"select-default "}
                 .form-group
                   %label
                     サイズ
