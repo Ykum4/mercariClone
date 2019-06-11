@@ -46,9 +46,21 @@
                   %span.form-require
                     必須
                   %div
+                    -# 
+                    .select-wrap 
+                      = f.collection_select :category, :main_category, Category.main_category, :id, :name, {prompt:'----'}, {class:"select-default"}
                     .select-wrap
-                      %select.select-default
-                      -# = select :category_id, method, , {}
+                     
+                    .select-wrap                    
+                      = f.collection_select :area_id, Area.all, :id, :prefecture, {prompt:'----'}, {class:"select-default "}
+                .form-group
+                  %label
+                    サイズ
+                  %span.form-require
+                    必須
+                  %div
+                    .select-wrap
+                      = f.collection_select :product_size_id, ProductSize.all, :id, :size, {prompt:'----'}, {class:"select-default"}
                 .form-group
                   %label
                     商品の状態
@@ -56,8 +68,7 @@
                     必須
                   %div
                     .select-wrap
-                      %select.select-default
-                      -# = select :category_id, method, , {}
+                      = f.select :condition, Product.conditions, {prompt:'----'}, {class:"select-default"}
           -# 配送の詳細
           .sell-content
             .select-products-state
@@ -72,8 +83,7 @@
                     必須
                   %div
                     .select-wrap
-                      %select.select-default
-                      -# = select :category_id, method, , {}
+                      = f.select :shipping_burden, Product.shipping_burdens, {prompt:'----'}, {class:"select-default"}
                 .form-group
                   %label
                     配送の方法
@@ -81,8 +91,7 @@
                     必須
                   %div
                     .select-wrap
-                      %select.select-default
-                      -# = select :category_id, method, , {}
+                      = f.select :shipping_method, Product.shipping_methods, {prompt:'----'}, {class:"select-default"}
                 .form-group
                   %label
                     発送元の地域
@@ -90,8 +99,8 @@
                     必須
                   %div
                     .select-wrap
-                      %select.select-default
-                      -# = select :category_id, method, , {}
+                      -# = f.select :area, Product.get_area, {prompt:'----'}, {class:"select-default"}
+                      = f.collection_select :area_id, Area.all, :id, :prefecture, {prompt:'----'}, {class:"select-default"}
                 .form-group
                   %label
                     発送までの日数
@@ -99,8 +108,7 @@
                     必須
                   %div
                     .select-wrap
-                      %select.select-default
-                      -# = select :category_id, method, , {}
+                      = f.select :estimated_date, Product.estimated_dates, {prompt:'----'}, {class:"select-default"}
           -# 販売価格
           .sell-content
             .select-products-state
