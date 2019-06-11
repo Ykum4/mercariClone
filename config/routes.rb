@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'categories/index'
+  get 'categories/show'
   root 'products#index'
   
   # sign_up, login周りのrouting
@@ -8,6 +10,17 @@ Rails.application.routes.draw do
   }
   devise_scope :user do
     get 'sign_up', to: 'users/registrations#sign_up' # select ways to register user by main, facebook, google
+  end
+
+  # 商品
+  resources :products
+
+  # カテゴリー
+  resources :categories, only: [:index, :show] do
+    collection do
+      get 'sub_category'
+      get 'mini_category'
+    end
   end
   
   # user周り
@@ -19,7 +32,5 @@ Rails.application.routes.draw do
     end
   end
 
-  # get 'mypage' => 'users#show'
-  # get 'card' => 'users#card'
-  # post 'card/create' => 'users#cardCreate'
+  
 end
