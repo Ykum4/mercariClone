@@ -51,4 +51,5 @@ production:
   <<: *default
   database: mercariClone_production
   username: mercariClone
-  password: <%= ENV['MERCARICLONE_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
