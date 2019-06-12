@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: mercariClone_production
-  username: mercariClone
-  password: <%= ENV['MERCARICLONE_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= Rails.application.credentials.DATABASE_PASSWORD %>
+  socket: /var/lib/mysql/mysql.sock # mysql_config socketコマンドでパスが見れる
