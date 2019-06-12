@@ -7,13 +7,13 @@
       .inner
         .content
           = link_to new_user_registration_path, class:'btn-default btn-email' do
-            = icon('far', 'envelope')
+            = fa_icon 'envelope'
             メールアドレスで登録
           %button.btn-default#facebook-registration
-            = icon('fab', 'facebook-square')
+            = fa_icon 'facebook-square'
             = link_to "Facebookで登録", '#', class: 'btn-default btn-sns-facebook'
           %button.btn-default#google-registration
-            = icon('fab', 'google')
+            = fa_icon 'google'
             = link_to "Googleで登録", '#', class: 'btn-default btn-sns-google'
   = render 'shared/single-footer'
           

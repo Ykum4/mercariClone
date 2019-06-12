@@ -6,20 +6,20 @@
           %img(src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2399382397" alt="mercari" width="134" height="36")/
       = form_tag('/', method: :get, class:'header-top__form')  do
         %input.input-default{:name => "keyword", placeholder:"何かお探しですか？", type:"search", value:""}
-        = icon('fas', 'search')
+        = fa_icon 'search'
     .header-nav-box
       %nav.header-nav-box__left
         %ul.header-nav
           %li
             %h2 
               = link_to "https://www.mercari.com/jp/category/", class:'header-nav-root' do
-                = icon('fas', 'list', class:'icon')
+                = fa_icon 'list', class:'icon'
                 %span カテゴリーから探す
             %ul
           %li
             %h2 
               = link_to "https://www.mercari.com/jp/brand/", class:'header-nav-root' do
-                = icon('fas', 'tag', class:'icon')
+                = fa_icon 'tag', class:'icon'
                 %span ブランドから探す
             %ul
 
@@ -28,11 +28,11 @@
           %ul.header-user-nav
             %li.notification
               = link_to '#' do
-                = icon('fas', 'bell')
+                = fa_icon 'bell'
                 %span お知らせ
             %li.todo-list
               = link_to '#' do
-                = icon('fas', 'check')
+                = fa_icon 'check'
                 %span やることリスト
             %li.mypage
               = link_to mypage_users_path do
