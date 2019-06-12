@@ -8,10 +8,10 @@
       .login-form-inner
         %button.btn-default#facebook-login
           = link_to "Facebookでログイン", '#', class: 'btn-default btn-sns-facebook'
-          = icon('fab', 'facebook-square')
+          = fa_icon 'facebook-square'
         %button.btn-default#google-login
           = link_to "Googleでログイン", '#', class: 'btn-default btn-sns-google'
-          = icon('fab', 'google')
+          = fa_icon 'google'
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .login-form-inner
           .form-group
