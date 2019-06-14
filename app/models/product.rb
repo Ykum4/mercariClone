@@ -12,11 +12,9 @@ class Product < ApplicationRecord
   enum estimated_date: {"1~2日で発送": 0, "2~3日で発送": 1, "4~7日で発送": 2}
   enum status: {published: 0, stopped: 1, trading: 2, sold: 3}
 
-  # f.selectを使って都道府県の表示をしようとしたがvalueの値が数値でなく"東京"などの文字列になったのでf.collectionを採用
+  # 下記のメソッドをf.selectで呼び出せるがRailsで用意している便利なf.collection_selectを使った方が分かり易いと思ったのでそちらを採用
   # def self.get_area
-  #   @area = Area.all.map do |a|
-  #     a.prefecture
-  #   end
+  #   @area = Area.all.map {|a| [a.prefecture, a.id ]}
   # end
 
 end
