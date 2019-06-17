@@ -1,0 +1,12 @@
+%section.items-box
+  = link_to product_path(item.id), class:'items-box' do
+    .items-box__image
+      = image_tag 'banner-natsukashi.jpg', width:'220px', height:'213px'
+    .items-box__body
+      %h3.item-name
+        #{item.name}
+      .item-num
+        .item-num__price
+          ¥ #{item.price}
+        %p.item-num__tax 
+          (税)
