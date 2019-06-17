@@ -1,0 +1,63 @@
+.transaction-container
+  .single-header-cover
+    = render 'shared/single-header'
+  %main.single-main
+    .buy-item-box
+      %h2.buy-item-box__head 購入内容の確認
+      .buy-item-box__content
+        .buy-item-box__content__inner
+          .item-info
+            %h3.item-info__image
+              = image_tag 'https://static.mercdn.net/thumb/photos/m55330794545_1.jpg?1560731390'
+            .item-info__name
+              徹底攻略AWS認定ソリューションアーキテクト―アソシエイト教科書
+            .item-purchase
+              .item-purchase__price
+                ¥ 2,200
+                %span 送料込み
+              .item-purchase__display-point
+                %p ポイントはありません
+              %ul.item-purchase__price-table
+                %li
+                  .kingaku 支払い金額
+                  .yen
+                    %span ¥ 2,200
+            = link_to '購入する', '#', class:'item-info__purchase-btn'
+              
+      .buy-item-box__content.user-info
+        .buy-item-box__content__inner
+          %h3 配送先
+          %address.buy-user-info-text
+            〒144-0052
+            %br/
+            東京都 大田区 多摩川 土手 114-514
+            %br/
+            ピェェヌ ぬき
+          %p.buy-user-info-text
+          = link_to "#", class: "buy-user-info-fix" do
+            %span 変更する
+            = fa_icon 'angle-right', class:'angle'
+      .buy-item-box__content.user-info
+        .buy-item-box__content__inner
+          %h3
+            支払い方法
+          - if @card
+            %ul.payment-method__content__list
+              %li
+                .setting-card{ style: "margin-top:10px"} 
+                  -# %figure
+                  -#   = card_images(@card.brand)
+                  -# .setting-card__payment-num{ style: "margin-top:10px"} 
+                  -#   = "************" + @card.last4
+                  -# .setting-card__payment-num{ style: "margin-top:10px"} 
+                  -#   = display_expMonYear(@card.exp_month, @card.exp_year)
+          - else
+            %p.buy-user-info-text
+              %br/
+              \/
+          %p
+          = link_to '#', class: "buy-user-info-fix" do
+            %span 変更する
+            = fa_icon 'angle-right', class:'angle'
+  .single-footer-cover
+    = render 'shared/single-footer'
