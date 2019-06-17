@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   end
 
   # 商品
-  resources :products
+  resources :products do
+    resource :transactions
+  end
 
   # カテゴリー
   resources :categories, only: [:index, :show] do
