@@ -1,0 +1,162 @@
+.container
+  = render 'shared/header'
+  %section.item-box-container
+    %h1.item-name 
+      新しいLinuxの教科書
+    %main.item-main-content
+      .item-photo
+        .item-photo__main
+          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m65434222313_1.jpg?1560407857', height: '300', width: '300'
+        .item-photo__sub
+      %table.item-detail-table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              = link_to '田中', '#'
+              %ul
+                %li.item-user-ratings
+                  = fa_icon 'smile-o'
+                  %span 16
+                %li.item-user-ratings
+                  = fa_icon 'meh-o'
+                  %span 16
+                %li.item-user-ratings
+                  = fa_icon 'frown-o'
+                  %span 16
+          %tr
+            %th カテゴリー
+            %td 
+              = link_to '本・音楽・ゲーム', "#"
+              = link_to '#' do
+                .item-detail-table-sub-category
+                  = fa_icon 'angle-right'
+                  %span 本
+              = link_to '#' do 
+                .item-detail-table-sub-category
+                  = fa_icon 'angle-right'
+                  %span コンピュータ/IT
+          %tr
+            %th.item-detail-table__record--key
+              ブランド
+            %td.item-detail-table__record--value
+              -# - if !@product.brand_id.nil?
+              -#   = link_to @product.brand.name, brand_path(@product.brand.id), { class: "table-link" }
+          %tr.item-detail-table__record
+            %th.item-detail-table__record--key
+              商品のサイズ
+            %td.item-detail-table__record--value
+              -# = @product.product_size.size
+          %tr.item-detail-table__record
+            %th.item-detail-table__record--key
+              商品の状態
+            %td.item-detail-table__record--value
+              目立った傷や汚れなし
+              -# = @product.condition
+          %tr.item-detail-table__record
+            %th.item-detail-table__record--key
+              配送料の負担
+            %td.item-detail-table__record--value
+              送料込み(出品者負担)
+              -# = @product.shipping_burden
+          %tr.item-detail-table__record
+            %th.item-detail-table__record--key
+              配送の方法
+            %td.item-detail-table__record--value
+              ゆうゆうメルカリ便
+              -# = @product.shipping_method
+          %tr.item-detail-table__record
+            %th.item-detail-table__record--key
+              配送元地域
+            %td.item-detail-table__record--value
+              千葉県
+              -# = link_to @product.area.prefecture, "", { class: "table-link" }
+          %tr.item-detail-table__record
+            %th.item-detail-table__record--key
+              発送日の目安
+            %td.item-detail-table__record--value
+              1~2日で発送
+              -# = @product.estimated_date
+
+    .item-price-box
+      %span.item-price
+        ¥ 2,100
+      %span.item-tax
+        (税込)
+      %span.item-shipping-fee
+        送料込み
+    = link_to '購入画面に進む', '#', class:'item-buy-btn'
+    .item-description
+      %p.item-description-inner
+        こんにちは
+    .item-button-container
+      .item-button-left
+        = button_tag "", class: "item-btn-like" do
+          = fa_icon "heart lg"
+          %span.iine
+            いいね!
+          %span.num-of-iine
+            189
+        = link_to "#", class: "item-btn-report" do
+          = fa_icon "flag-o"
+          %span
+            不適切な商品の報告
+      .item-button-right
+        = link_to "" do
+          = fa_icon "lock-o", text:"あんしん・あんぜんへの取り組み"
+
+  .item-detail-message
+  .product-page-comment
+    .message-content
+      %ul.product-page-comment__messages.item-messages
+        %li.item-messages__message.clearfix
+          .item-messages__message--user
+            = link_to "" do
+              %figure.message-user
+                .message-user__image
+                  = image_tag "https://img.buzzfeed.com/buzzfeed-static/static/2018-01/19/4/enhanced/buzzfeed-prod-fastlane-01/longform-original-6927-1516353932-3.jpg?downsize=1600:*&output-format=auto&output-quality=auto"
+                %figcaption.message-user__name
+                  石原
+          .item-messages__message--body.message-body
+            .message-body__text
+              こんにちは！無料で譲っていただけませんか？
+            .message-body__icons
+              =fa_icon "clock lg", text:"６日前"
+        %li.item-messages__message.clearfix
+          .item-messages__message--user
+            = link_to "" do
+              %figure.message-user
+                .message-user__image
+                  = image_tag "https://upload.wikimedia.org/wikipedia/commons/9/9e/Ours_brun_parcanimalierpyrenees_1.jpg"
+                %figcaption.message-user__name
+                  熊
+          .item-messages__message--body.message-body
+            .message-body__text
+              無理です！
+            .message-body__icons
+              =fa_icon "clock lg", text:"５日前"
+    .massege-content
+      .product-page-comment__attention
+        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %textarea.product-page-comment__textarea
+      = button_tag "", class: "product-page-comment__submit" do
+        %span
+          コメントする
+
+  %ul.product-page-prev-next-link.clearfix
+    %li.product-page-prev-next-link__prev
+      - if !@other_product_previous.nil?
+        = link_to product_path(@other_product_previous.id), class: "clearfix" do
+          = fa_icon "angle-left lg", class: "product-page-prev-next-link__prev--icon"
+          %span.product-page-prev-next-link__prev--item-name
+            = @other_product_previous.name
+    %li.product-page-prev-next-link__next
+      - if !@other_product_next.nil?
+        = link_to product_path(@other_product_next.id), class: "clearfix"  do
+          = fa_icon "angle-right lg", class: "product-page-prev-next-link__next--icon"
+          %span.product-page-prev-next-link__next--item-name
+            = @other_product_next.name
+
+  = render 'shared/app-banner'
+  = render 'shared/footer'
+  = render 'shared/footer-sell-btn'
