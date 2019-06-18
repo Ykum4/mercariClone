@@ -11,6 +11,8 @@ class ProductsController < ApplicationController
 
     # includesで実験
     # @ladies_product = Product.where(category_id: @ladies.id).limit(4).order(id: "DESC") これだとmain, subのカテゴリーを検索できない
+
+    # joinでproductテーブルのcategory_idとcategoryテーブルのidを結合させ、mergeメソッドでcategoryのmain_category_idが1のものを特定させている
     @ladies_item = Product.joins(:category).merge(Category.where(main_category_id: 1)).limit(4).order(id: "DESC")
 
   end
