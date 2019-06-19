@@ -14,7 +14,7 @@ main {
     text-align: center;
     line-height: 1.4;
   }
-  .item-box-container {
+  .item-box-container-index {
     width: 940px;
     margin: 0 auto;
     .text-new-item {
@@ -27,29 +27,48 @@ main {
     }
     .items-box-content {
       display: flex;
-      width: auto;
       justify-content: space-between;
+      width: auto;
       .items-box {
         display: block;
-        &__image {
-          overflow: hidden;
-        }
-        &__body {
-          background: $white;
-          padding: 16px;
-          .item-name {
+        width: 213px;
+        margin: 0 0 0 20px;
+        &__block {
+          display: block;
+          &__image {
+            width: 213px;
+            height: 220px;
+            padding: 0 0 100%;
             overflow: hidden;
-            font-weight: 400;
-            line-height: 1.5;
-          }
-          .item-num {
-            margin: 8px 0 0;
-            &__price {
-              font-size: 17px;
-              font-weight: 600;
+            position: relative;
+            img {
+              width: 213px;
+              height: 220px;
             }
-            &__tax {
-              font-size: 10px;
+          }
+          &__body {
+            background: $white;
+            height: 110px;
+            padding: 16px;
+            .item-name {
+              overflow: hidden;
+              position: relative;
+              font-weight: 400;
+              font-size: 16px;
+              height: 3em;
+              line-height: 1.5;
+              word-break: break-word;
+              white-space: normal;
+            }
+            .item-num {
+              margin: 8px 0 0;
+              &__price {
+                font-size: 17px;
+                font-weight: 600;
+              }
+              &__tax {
+                font-size: 10px;
+              }
             }
           }
         }
