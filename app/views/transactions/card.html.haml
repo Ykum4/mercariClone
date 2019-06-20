@@ -1,0 +1,16 @@
+.single-header-cover
+  = render 'shared/single-header'
+%main.transactions-card-container
+  %section.creditcard-form
+    %h2.creditcard-form__title
+      支払い方法
+    = form_tag(users_cards_path(current_user.id), method: "POST", class: "creditcard-form__body", id:"add-card" ) do
+      - if @card
+        = render 'cards/card-detail'
+        %section.payment-method-card-submit
+          .next-btn-content
+            = link_to "次に進む", new_product_transactions_path(params[:product_id]), class:"btn-red" 
+      - else
+        = render 'cards/creditcard-form', btn: "追加する"
+.single-footer-cover
+  = render 'shared/single-footer'

@@ -1,0 +1,26 @@
+.single-header-cover, .single-footer-cover {
+  background: $gray;
+}
+.transactions-card-container {
+  width: 700px;
+  background: $white;
+  margin: 0 auto;
+}
+.payment-method-card-submit {
+  margin-top: 40px;
+  .next-btn-content {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .btn-red {
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    background: $red;
+    color: white;
+    text-align: center;
+    border: 1px solid #ea352d;
+    cursor: pointer;
+  }
+}

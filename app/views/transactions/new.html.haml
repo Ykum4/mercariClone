@@ -23,7 +23,13 @@
                   .yen
                     %span
                       = "¥ #{@product.price}"
-            = link_to '購入する', product_transactions_path(@product), method: :post,class:'item-info__purchase-btn'
+            - if @card
+              = link_to '購入する', product_transactions_path(@product), method: :post, class:'item-info__purchase-btn'
+            - else 
+              %p.has-error-text
+                配送先と支払い方法の入力を完了してください。
+              .item-info__purchase-btn--disabled
+                購入する
               
       .buy-item-box__content.user-info
         .buy-item-box__content__inner
@@ -33,7 +39,7 @@
             %br/
             東京都 大田区 多摩川 土手 114-514
             %br/
-            ピェェヌ ぬき
+            羽田太郎
           %p.buy-user-info-text
           = link_to "#", class: "buy-user-info-fix" do
             %span 変更する
@@ -43,21 +49,21 @@
           %h3
             支払い方法
           - if @card
-            %ul.payment-method__content__list
+            %ul
               %li
-                .setting-card{ style: "margin-top:10px"} 
-                  -# %figure
-                  -#   = card_images(@card.brand)
-                  -# .setting-card__payment-num{ style: "margin-top:10px"} 
-                  -#   = "************" + @card.last4
-                  -# .setting-card__payment-num{ style: "margin-top:10px"} 
-                  -#   = display_expMonYear(@card.exp_month, @card.exp_year)
+                .setting-card 
+                  %figure
+                    = card_images(@card.brand)
+                  .setting-card__payment-num
+                    = "************" + @card.last4
+                  .setting-card__payment-num
+                    = display_expMonYear(@card.exp_month, @card.exp_year)
           - else
             %p.buy-user-info-text
               %br/
               \/
           %p
-          = link_to '#', class: "buy-user-info-fix" do
+          = link_to card_product_transactions_path(@product), class: "buy-user-info-fix" do
             %span 変更する
             = fa_icon 'angle-right', class:'angle'
   .single-footer-cover
