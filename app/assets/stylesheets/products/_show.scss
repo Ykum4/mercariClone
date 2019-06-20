@@ -17,10 +17,95 @@
   margin: 16px 0 0 ;
 }
 .item-photo {
+  position: relative;
   min-width: 300px;
   max-width: 300px;
   min-height: 375px;
   background: #fafafa;
+}
+.item-page-main{
+  position: relative;
+  &__images{
+    width: 300px;
+    float: left;
+    background-color: #fafafa;
+    &--main{
+      width: 100%;
+      height: 300px;
+      // object-fit: contain;
+      display: block;
+    }
+    &--soldout-badge{
+      position: absolute;
+      top: 0;
+      height: 0;
+      width: 0;
+      border: 60px solid transparent;
+      border-top-color: #ea352d;
+      border-left-color: #ea352d;
+      z-index: 30;
+    }
+    &--soldout{
+      text-align: center;
+      position: absolute;
+      top: 30px;
+      width: 85px;
+      z-index: 50;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      transform: rotate(-45deg);
+    }
+    &--stopped-badge{
+      position: absolute;
+      top: 0;
+      height: 0;
+      width: 0;
+      border: 60px solid transparent;
+      border-top-color: #888;
+      border-left-color: #888;
+      z-index: 30;
+    }
+    &--stopped{
+      text-align: center;
+      position: absolute;
+      top: 30px;
+      width: 85px;
+      z-index: 50;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      transform: rotate(-45deg);
+    }
+    &--others{
+      width: 100%;
+      height: 120px;
+      position: relative;
+      .other-image{
+        width: 20%;
+        height: 60px;
+        object-fit: contain;
+        display: block;
+        float: left;
+      }
+      .other-image-masks{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+        &__mask{
+          width: 20%;
+          height: 62px;
+          float: left;
+          background-color:rgba(255,255,255,0.8);
+          &--active{
+            @extend .other-image-masks__mask;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
 }
 .item-detail-table {
   width: 100%;
@@ -97,6 +182,7 @@
     font-size: 16px;
   }
 }
+// 購入ボタン
 .item-buy-btn {
   @include btn-red;
   display: block;
@@ -108,6 +194,14 @@
   border-radius: 4px;
   margin: 16px 0 0;
 }
+// 売り切れボタン
+.item-buy-btn-disabled {
+  @extend .item-buy-btn;
+  background: #888;
+  border: none;
+  border-radius: 0;
+  cursor: not-allowed;
+}
 .item-description {
   padding: 32px 0 0;
   line-height: 1.5;
@@ -117,38 +211,37 @@
   }
 }
 .item-button-container {
-  display: flex;
-  justify-content: space-between;
-  margin: 16px 0 0;
-  font-size: 0;
-  // いいね
-  .item-btn-like {
-    color: #333;
-    border: 1px solid #f5f5f5;
-    background: #f5f5f5;
-    display: inline-block;
-    padding: 8px 16px;
-    border-radius: 40px;
-    cursor: pointer;
-    .iine {
-      display: inline-block;
+  .item-buttons {
+    margin: 24px 0 0;
+    position: relative;
+    &--liked{
+      color: black;
+      border: 1px solid #f5f5f5;
+      background: #f5f5f5;
       font-size: 14px;
-      margin: 1px 0 0 8px;
-    }
-    .num-of-iine {
+      padding: 8px 16px;
+      border-radius: 40px;
       display: inline-block;
-      font-size: 14px;
-      margin: 1px 0 0 8px;
+      span {
+        font-size: 14px;
+        margin: 1px 0 0 8px;
+      }
     }
-  }
-  // 不適切な商品の報告
-  .item-btn-report {
-    display: inline-block;
-    margin: 0 0 0 16px;
+    &--report{
+    margin-left :16px;
     color: #333;
     background: #f5f5f5;
+    font-size: 14px;
     padding: 8px 16px;
     border-radius: 40px;
+    display: inline-block;
+    }
+    &--safe{
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    line-height: 39px;
+    }
   }
 }
 .product-page-comment{

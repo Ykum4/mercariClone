@@ -5,8 +5,23 @@
       = @product.name
     %main.item-main-content
       .item-photo
-        .item-photo__main
-          = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m65434222313_1.jpg?1560407857', height: '300', width: '300'
+        .item-photo__main.item-page-main
+          .item-page-main__images
+            = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m65434222313_1.jpg?1560407857' ,class: "items-box__image1", class: "item-page-main__images--main"
+            - if @product.sold?
+              .item-page-main__images--soldout-badge
+              .item-page-main__images--soldout
+                SOLD
+            - if @product.stopped?
+              .item-page-main__images--stopped-badge
+              .item-page-main__images--stopped
+                出品停止中
+            .product-page-main__images--others.clearfix
+              -# - @product.product_images.each do |product_image|
+                -# = image_tag product_image.image, class: "items-box__image1", class: "other-image"
+              .other-image-masks.clearfix
+                -# - 10.times do
+                  .other-image-masks__mask
         .item-photo__sub
       %table.item-detail-table
         %tbody
@@ -82,26 +97,30 @@
         (税込)
       %span.item-shipping-fee
         送料込み
-    = link_to '購入画面に進む', new_product_transactions_path(@product), class:'item-buy-btn'
+    - if @product.sold?
+      .item-buy-btn-disabled
+        売り切れました
+      -# = link_to '購入画面に進む', '#', class:'item-buy-btn'
+    - else 
+      = link_to '購入画面に進む', new_product_transactions_path(@product), class:'item-buy-btn'
     .item-description
       %p.item-description-inner
         = @product.description
     .item-button-container
-      .item-button-left
-        = button_tag "", class: "item-btn-like" do
+      .item-buttons
+        = button_tag "", class: "item-buttons--liked" do
           = fa_icon "heart lg"
-          %span.iine
+          %span
             いいね!
-          %span.num-of-iine
+          %span.number-of-iine
             189
-        = link_to "#", class: "item-btn-report" do
-          = fa_icon "flag-o"
+        = link_to "", class: "item-buttons--report" do
+          = fa_icon "flag lg"
           %span
             不適切な商品の報告
-      .item-button-right
-        = link_to "" do
-          = fa_icon "lock-o", text:"あんしん・あんぜんへの取り組み"
-
+        .item-buttons--safe
+          = link_to "" do
+            = fa_icon "lock lg", text:"あんしん・あんぜんへの取り組み"
   .item-detail-message
   .product-page-comment
     .message-content
