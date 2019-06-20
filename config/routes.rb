@@ -12,12 +12,18 @@ Rails.application.routes.draw do
     get 'sign_up', to: 'users/registrations#sign_up' # select ways to register user by main, facebook, google
   end
 
-  # 商品
-  resources :products 
-    
-  resource :transactions # view作り終わったら変更
+  # 商品 購入
+  resources :products do
+    resource :transactions do
+      collection do
+        get 'complete'
+      end
+    end
+  end
 
+  get 'transactions/card', to: 'transactions#card'
 
+  
   # カテゴリー
   resources :categories, only: [:index, :show] do
     collection do

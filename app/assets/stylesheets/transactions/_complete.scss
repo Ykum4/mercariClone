@@ -1,12 +1,9 @@
-.single-header-cover {
+.single-header-cover, .single-footer-cover {
   background: $gray;
 }
-.single-footer-cover {
-  background: $gray;
-}
-.single-main {
+.bought-container {
   display: block;
-  .buy-item-box {
+  .bought-item-box {
     width: 700px;
     background: $white;
     margin: 0 auto;
@@ -54,7 +51,7 @@
         margin: 8px 0 0;
       }
     }
-    .item-purchase {
+    .item-purchased {
       text-align: center;
       &__price {
         font-size: 22px;
@@ -91,37 +88,6 @@
             font-size: 28px;
           }
         }
-        
-      }
-    }
-    .user-info {
-      h3 {
-        font-size: 14px;
-        font-weight: bold;
-      }
-      address {
-        display: block;
-        margin: 8px 0 0;
-        font-size: 14px;
-        line-height: 1.4;
-      }
-      .buy-user-info-fix {
-        display: block;
-        margin: 14px;
-        text-align: right;
-        color: #0099e8;
-        span {
-          color: #0099e8;
-        }
-        .angle {
-          color: #0099e8;
-          margin: 0 0 0 8px;
-        }
-      }
-      .buy-user-info-text {
-        margin: 8px 0 0;
-        font-size: 14px;
-        line-height: 1.4;
       }
     }
   }

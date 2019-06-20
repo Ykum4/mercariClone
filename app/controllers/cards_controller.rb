@@ -2,9 +2,12 @@ class CardsController < ApplicationController
   before_action :get_payjp_customer
   before_action :get_card_info
   before_action :confirm_card_info, except: [:destroy, :create]
+
+  # カードの削除
+  include CardMethod
+
   # カード登録していなければ追加するページへの遷移リンク
   def addcard
-    
   end
 
   # クレジットカード登録ページ
