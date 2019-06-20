@@ -19,7 +19,7 @@ class TransactionsController < ApplicationController
       :customer => @payjp_customer, # CardMethodで定義済み
       :currency => 'jpy',
     )
-    # @product.update(status: 'sold')
+    @product.update(status: 3) # 商品の状態を売り切れにする
     redirect_to complete_product_transactions_path(@product)
 
   end
