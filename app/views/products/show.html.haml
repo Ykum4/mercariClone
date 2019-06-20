@@ -82,7 +82,7 @@
         (税込)
       %span.item-shipping-fee
         送料込み
-    = link_to '購入画面に進む', '#', class:'item-buy-btn'
+    = link_to '購入画面に進む', new_product_transactions_path(@product), class:'item-buy-btn'
     .item-description
       %p.item-description-inner
         = @product.description

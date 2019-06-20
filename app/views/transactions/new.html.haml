@@ -10,10 +10,10 @@
             %h3.item-info__image
               = image_tag 'https://static.mercdn.net/thumb/photos/m55330794545_1.jpg?1560731390'
             .item-info__name
-              徹底攻略AWS認定ソリューションアーキテクト―アソシエイト教科書
+              = @product.name
             .item-purchase
               .item-purchase__price
-                ¥ 2,200
+                = "¥ #{@product.price}"
                 %span 送料込み
               .item-purchase__display-point
                 %p ポイントはありません
@@ -21,8 +21,9 @@
                 %li
                   .kingaku 支払い金額
                   .yen
-                    %span ¥ 2,200
-            = link_to '購入する', '#', class:'item-info__purchase-btn'
+                    %span
+                      = "¥ #{@product.price}"
+            = link_to '購入する', product_transactions_path(@product), method: :post,class:'item-info__purchase-btn'
               
       .buy-item-box__content.user-info
         .buy-item-box__content__inner
