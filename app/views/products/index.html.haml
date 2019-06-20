@@ -6,113 +6,19 @@
     %section.pickup-container
       %h2.pickup-head
         ピックアップカテゴリー
-      %section.item-box-container
+      %section.item-box-container-index
         %h3.text-new-item
-          = link_to 'レディース 新着アイテム', "/", class:'new-item'
+          = link_to "#{@ladies.name} 新着アイテム", "/", class:'new-item'
         .items-box-content
-          %section.items-wrap
-            = link_to '/', class:'items-box' do
-              .items-box__image
-                = image_tag 'banner-natsukashi.jpg', width:'220px', height:'213px'
-              .items-box__body
-                %h3.item-name
-                  ハット
-                .item-num
-                  .item-num__price
-                    ¥ 1,600
-                  %p.item-num__tax 
-                    (税)
-          %section.items-box
-            = link_to '/' do
-              .items-box__image
-                = image_tag 'banner-natsukashi.jpg', width:'220px', height:'213px'
-              .items-box__body
-                %h3.item-name
-                  ハット
-                .item-num
-                  .item-num__price
-                    ¥ 1,600
-                  %p.item-num__tax 
-                    (税)
-          %section.items-box
-            = link_to '/' do
-              .items-box__image
-                = image_tag 'banner-natsukashi.jpg', width:'220px', height:'213px'
-              .items-box__body
-                %h3.item-name
-                  ハット
-                .item-num
-                  .item-num__price
-                    ¥ 1,600
-                  %p.item-num__tax 
-                    (税)
-          %section.items-box
-            = link_to '/' do
-              .items-box__image
-                = image_tag 'banner-natsukashi.jpg', width:'220px', height:'213px'
-              .items-box__body
-                %h3.item-name
-                  ハット
-                .item-num
-                  .item-num__price
-                    ¥ 1,600
-                  %p.item-num__tax 
-                    (税)
+          = render partial: 'item-box', collection: @ladies_items, as: :item
         .view-all
           = link_to 'すべての商品をみる', "/", class:'show-all'
 
-      %section.item-box-container
+      %section.item-box-container-index
         %h3.text-new-item
-          = link_to 'メンズ 新着アイテム', "/", class:'new-item'
+          = link_to "#{@mens.name} 新着アイテム", "/", class:'new-item'
         .items-box-content
-          %section.items-wrap
-            = link_to '/', class:'items-box' do
-              .items-box__image
-                = image_tag 'banner-natsukashi.jpg', width:'220px', height:'213px'
-              .items-box__body
-                %h3.item-name
-                  ハット
-                .item-num
-                  .item-num__price
-                    ¥ 1,600
-                  %p.item-num__tax 
-                    (税)
-          %section.items-box
-            = link_to '/' do
-              .items-box__image
-                = image_tag 'banner-natsukashi.jpg', width:'220px', height:'213px'
-              .items-box__body
-                %h3.item-name
-                  ハット
-                .item-num
-                  .item-num__price
-                    ¥ 1,600
-                  %p.item-num__tax 
-                    (税)
-          %section.items-box
-            = link_to '/' do
-              .items-box__image
-                = image_tag 'banner-natsukashi.jpg', width:'220px', height:'213px'
-              .items-box__body
-                %h3.item-name
-                  ハット
-                .item-num
-                  .item-num__price
-                    ¥ 1,600
-                  %p.item-num__tax 
-                    (税)
-          %section.items-box
-            = link_to '/' do
-              .items-box__image
-                = image_tag 'banner-natsukashi.jpg', width:'220px', height:'213px'
-              .items-box__body
-                %h3.item-name
-                  ハット
-                .item-num
-                  .item-num__price
-                    ¥ 1,600
-                  %p.item-num__tax 
-                    (税)
+          = render partial: 'item-box', collection: @mens_items, as: :item
         .view-all
           = link_to 'すべての商品をみる', "/", class:'show-all'
       
@@ -121,7 +27,7 @@
     %section.pickup-container
       %h2.pickup-head
         ピックアップブランド
-      %section.item-box-container
+      %section.item-box-container-index
         %h3.text-new-item
           = link_to 'シャネル 新着アイテム', "/", class:'new-item'
         .items-box-content
@@ -176,7 +82,7 @@
         .view-all
           = link_to 'すべての商品をみる', "/", class:'show-all'
 
-      %section.item-box-container
+      %section.item-box-container-index
         %h3.text-new-item
           = link_to 'ルイ・ヴィトン 新着アイテム', "/", class:'new-item'
         .items-box-content

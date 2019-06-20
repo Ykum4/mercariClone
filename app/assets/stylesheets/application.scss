@@ -1,5 +1,4 @@
 // 初期設定
-@import "font-awesome-sprockets";
 @import "font-awesome";
 @import 'module/reset';
 @import 'module/variable';
@@ -15,6 +14,12 @@
 
 // products関連
 @import 'products/index';
+@import 'products/new';
+@import 'products/show';
+
+// transactions関連
+@import 'transactions/new';
+@import 'transactions/complete';
 
 // user関連
 @import 'user/signup';
