@@ -17,12 +17,10 @@ Rails.application.routes.draw do
     resource :transactions do
       collection do
         get 'complete'
+        get 'card'
       end
     end
   end
-
-  get 'transactions/card', to: 'transactions#card'
-
   
   # カテゴリー
   resources :categories, only: [:index, :show] do

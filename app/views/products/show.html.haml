@@ -100,7 +100,6 @@
     - if @product.sold?
       .item-buy-btn-disabled
         売り切れました
-      -# = link_to '購入画面に進む', '#', class:'item-buy-btn'
     - else 
       = link_to '購入画面に進む', new_product_transactions_path(@product), class:'item-buy-btn'
     .item-description

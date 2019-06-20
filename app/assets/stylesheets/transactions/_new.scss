@@ -52,6 +52,20 @@
         @include btn-red;
         font-weight: 600;
         margin: 8px 0 0;
+        &--disabled {
+          @include btn-default;
+          color: white;
+          border: 1px solid #888;
+          background: #888;
+          margin-top: 8px;
+          cursor: not-allowed;
+        }
+      }
+      .has-error-text {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #ea352d;
+        margin: 8px 0 0;
       }
     }
     .item-purchase {
@@ -105,17 +119,24 @@
         font-size: 14px;
         line-height: 1.4;
       }
+      .setting-card {
+        margin-top: 10px;
+        &__payment-num {
+          font-weight: bold;
+          margin-top:10px
+        }
+      }
       .buy-user-info-fix {
         display: block;
         margin: 14px;
         text-align: right;
         color: #0099e8;
-        span {
+        span, .angle {
           color: #0099e8;
-        }
-        .angle {
-          color: #0099e8;
-          margin: 0 0 0 8px;
+          &:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+          }
         }
       }
       .buy-user-info-text {

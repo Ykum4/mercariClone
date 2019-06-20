@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_product
+  before_action :get_product, except: :card
   before_action :get_payjp_customer
   before_action :get_card_info
   # カード登録の処理はmodule化して呼び出せるように
@@ -21,7 +21,11 @@ class TransactionsController < ApplicationController
     )
     @product.update(status: 3) # 商品の状態を売り切れにする
     redirect_to complete_product_transactions_path(@product)
+  end
 
+  # カード情報変更/追加
+  def card
+    
   end
 
   private 
