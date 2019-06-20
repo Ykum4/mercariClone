@@ -1,8 +1,8 @@
 %section.items-box
-  = link_to product_path(item.id), class:'items-box' do
-    .items-box__image
-      = image_tag 'banner-natsukashi.jpg', width:'220px', height:'213px'
-    .items-box__body
+  = link_to product_path(item.id), class:'items-box__block' do
+    .items-box__block__image
+      = image_tag 'banner-natsukashi.jpg', class: 'product-image'
+    .items-box__block__body
       %h3.item-name
         #{item.name}
       .item-num
