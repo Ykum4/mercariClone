@@ -1,20 +1,15 @@
 class ProductsController < ApplicationController
-
+  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
   # トップページ
   def index
-    # 後にリファクタリングしていく
-    # 現状はladiesとmend、そしてシャネル/ルイヴィトンのみを表示させる
     @ladies = Category.find_by(id: 1)
+    @ladies_items = Product.of_category(1)
     @mens = Category.find_by(id: 2)
+    @mens_items = Product.of_category(2)
     @chanel = Brand.find_by(id: 1)
+    @chanel_items = Product.of_brand(1)
     @vuitton = Brand.find_by(id: 2)
-
-    # includesで実験
-    # @ladies_product = Product.where(category_id: @ladies.id).limit(4).order(id: "DESC") これだとmain, subのカテゴリーを検索できない
-
-    # joinでproductテーブルのcategory_idとcategoryテーブルのidを結合させ、mergeメソッドでcategoryのmain_category_idが1のものを特定させている
-    @ladies_item = Product.joins(:category).merge(Category.where(main_category_id: 1)).limit(4).order(id: "DESC")
-
+    @vuitton_items = Product.of_brand(2)
   end
 
   # 商品出品画面
@@ -24,7 +19,7 @@ class ProductsController < ApplicationController
 
   # 商品詳細画面
   def show
-    # @product = Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def create 

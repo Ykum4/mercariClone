@@ -2,7 +2,7 @@
   = render 'shared/header'
   %section.item-box-container
     %h1.item-name 
-      新しいLinuxの教科書
+      = @product.name
     %main.item-main-content
       .item-photo
         .item-photo__main
@@ -13,16 +13,16 @@
           %tr
             %th 出品者
             %td
-              = link_to '田中', '#'
+              = link_to "#{@product.user.name}", '#'
               %ul
                 %li.item-user-ratings
-                  = fa_icon 'smile-o'
+                  = fa_icon 'smile-o', class:'icon-smile'
                   %span 16
                 %li.item-user-ratings
-                  = fa_icon 'meh-o'
+                  = fa_icon 'meh-o', class:'icon-meh'
                   %span 16
                 %li.item-user-ratings
-                  = fa_icon 'frown-o'
+                  = fa_icon 'frown-o', class:'icon-frown'
                   %span 16
           %tr
             %th カテゴリー
@@ -40,47 +40,44 @@
             %th.item-detail-table__record--key
               ブランド
             %td.item-detail-table__record--value
-              -# - if !@product.brand_id.nil?
-              -#   = link_to @product.brand.name, brand_path(@product.brand.id), { class: "table-link" }
+              - if @product.brand
+                = link_to "#{@product.brand.name}", "#", { class: "table-link" }
           %tr.item-detail-table__record
             %th.item-detail-table__record--key
               商品のサイズ
             %td.item-detail-table__record--value
-              -# = @product.product_size.size
+              - if @product.product_size
+                = @product.product_size.size
           %tr.item-detail-table__record
             %th.item-detail-table__record--key
               商品の状態
             %td.item-detail-table__record--value
-              目立った傷や汚れなし
-              -# = @product.condition
+              = @product.condition
           %tr.item-detail-table__record
             %th.item-detail-table__record--key
               配送料の負担
             %td.item-detail-table__record--value
-              送料込み(出品者負担)
-              -# = @product.shipping_burden
+              = @product.shipping_burden
           %tr.item-detail-table__record
             %th.item-detail-table__record--key
               配送の方法
             %td.item-detail-table__record--value
-              ゆうゆうメルカリ便
-              -# = @product.shipping_method
+              = @product.shipping_method
           %tr.item-detail-table__record
             %th.item-detail-table__record--key
               配送元地域
             %td.item-detail-table__record--value
-              千葉県
-              -# = link_to @product.area.prefecture, "", { class: "table-link" }
+              %p.product-detail-area
+                = @product.area.prefecture
           %tr.item-detail-table__record
             %th.item-detail-table__record--key
               発送日の目安
             %td.item-detail-table__record--value
-              1~2日で発送
-              -# = @product.estimated_date
+              = @product.estimated_date
 
     .item-price-box
       %span.item-price
-        ¥ 2,100
+        = "¥ #{@product.price}"
       %span.item-tax
         (税込)
       %span.item-shipping-fee
@@ -88,7 +85,7 @@
     = link_to '購入画面に進む', '#', class:'item-buy-btn'
     .item-description
       %p.item-description-inner
-        こんにちは
+        = @product.description
     .item-button-container
       .item-button-left
         = button_tag "", class: "item-btn-like" do
